@@ -2,7 +2,7 @@ h1, h2 {
     padding-left: 8%;
     color: black;
     display: block;
-    margin: 15px;
+    margin: 20px;
 }
 
 h2 {
@@ -20,5 +20,5 @@ img {
     float: right;
     padding: 5px;
     padding-right: 20px;
-    width: 32%;
+    width: 25%;
 }
