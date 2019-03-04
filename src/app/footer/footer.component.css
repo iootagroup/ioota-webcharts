@@ -1,6 +1,14 @@
-:host {
-  font-family: var(--main-font);
-  background-color: var(--black);
+footer {
+  /* background-color: var(--grey-bg); */
   text-align: center;
   font-size: 0.8rem;
+}
+footer {
+  padding: 2rem 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--dark-text);
+  color: var(--discreet-text);
+  border-top: 1px solid var(--grey-line-break);
 }

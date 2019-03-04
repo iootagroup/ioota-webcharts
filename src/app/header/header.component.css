@@ -1,24 +1,45 @@
-h1, h2 {
-    padding-left: 8%;
-    color: black;
-    display: block;
-    margin: 20px;
-}
-
-h2 {
-    color: #f57300;
-}
-
-#head {
-    background-color: white;
-    padding: 10px;
-    border: 3px solid black;
-    margin: 10px;
+html {
+  box-sizing: border-box;
 }
 
 img {
-    float: right;
-    padding: 5px;
-    padding-right: 20px;
-    width: 25%;
+  max-height: 50px;
+}
+
+.wrapper {
+  display: grid;
+  border-bottom: 1px solid var(--grey-line-break);
+}
+
+/* Header container */
+.header-container {
+  display: grid;
+  grid-gap: 2.2rem;
+  /* grid-template-areas:
+    "showcase showcase top-info"
+    "showcase showcase top-info"; */
+  grid-template-columns: repeat(2, 1fr);
+  background-color: var(--white);
+  padding: 1.3rem 2rem; /* Required protected area around the Kemppi logo */
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  /* align-content: center; */
+  /* justify-content: center; */
+}
+
+.title h1 {
+  font-weight: bold;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-logo {
+  align-self: flex-end;
 }

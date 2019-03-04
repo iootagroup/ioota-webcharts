@@ -4,30 +4,27 @@
 
 <router-outlet></router-outlet>
 
-<footer>
-  <app-footer></app-footer>
-</footer>
+<!-- <div>
+  <ng-sidebar-container style=" height: 100vh">
+    <ng-sidebar [(opened)]="_opened" mode="push" autoCollapseWidth="100">
+      <p>Sidebar contents</p>
+      <p>Sidebar contents</p>
+      <p>Sidebar contents</p>
+      <p>Sidebar contents</p>
+      <p>Sidebar contents</p>
+    </ng-sidebar> -->
 
-<div>
-    <ng-sidebar-container style=" height: 100vh">
-    <ng-sidebar [(opened)]="_opened" mode="push" autoCollapseWidth=100>
-
-      <p>Sidebar contents</p>
-      <p>Sidebar contents</p>
-      <p>Sidebar contents</p>
-      <p>Sidebar contents</p>
-      <p>Sidebar contents</p>
-
-    </ng-sidebar>
-
-    <!-- Page content -->
-    <div ng-sidebar-content>
+<!-- Page content -->
+<!-- <div ng-sidebar-content>
       <button (click)="_toggleSidebar()">Toggle sidebar</button>
     </div>
 
     <ng-sidebar #sidebar>
-        <button (click)="sidebar.close()">Close sidebar</button>
+      <button (click)="sidebar.close()">Close sidebar</button>
     </ng-sidebar>
+  </ng-sidebar-container>
+</div> -->
 
-  </ng-sidebar-container>    
-</div>
+<footer>
+  <app-footer></app-footer>
+</footer>
