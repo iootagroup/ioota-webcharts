@@ -5,12 +5,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { LiveComponent } from './charts/live/live.component';
+import { HistoryComponent } from './charts/history/history.component';
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LiveComponent,
+    HistoryComponent,
+    SidemenuComponent
   ],
   imports: [
     BrowserModule,
