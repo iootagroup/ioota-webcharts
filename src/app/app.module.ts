@@ -20,7 +20,6 @@ import { WelcomeComponent } from './welcome/welcome.component';
     FooterComponent,
     LiveComponent,
     HistoryComponent,
-    SidemenuComponent,
     WelcomeComponent
   ],
   imports: [
