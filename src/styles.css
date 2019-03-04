@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --black: #000000; /* black and white used equally */
+  --white: #ffffff; /* black and white used equally */
+  --orange: #f57300; /* highlight used sparingly */
+  --dark-text: #414141; /* main text */
+  --grey-bg: #ededed; /* background */
+  --grey-line-break: #cccccc; /*line break */
+  --headline-font: Arial;
+  --main-font: "Arial";
+  --shadow: 4px 4px 10px rgba(104, 104, 104, 0.8);
+}
+
+body {
+  /* background-color: var(--grey-bg); */
+  color: var(--dark-text);
+  font-family: var(--main-font);
+}
