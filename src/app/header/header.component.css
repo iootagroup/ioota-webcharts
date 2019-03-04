@@ -1,5 +1,5 @@
 h1, h2 {
-    text-align: center;
+    padding-left: 15%;
     color: black;
     font: Myriad Pro;
     display: block;
@@ -12,8 +12,12 @@ h2 {
 #head {
     background-color: white;
     padding: 10px;
+    border: 3px solid black;
+    margin: auto;
 }
 
 img {
-    width: 20%;
+    float: right;
+    padding: 5px;
+    width: 32%;
 }
