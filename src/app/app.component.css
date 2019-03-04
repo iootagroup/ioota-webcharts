@@ -12,9 +12,5 @@
 body {
   background-color: var(--grey-bg);
   font-family: var(--main-font);
-}
-
-footer {
-  background-color: var(--grey-bg);
-  font-family: var(--main-font);
+  color: var(--dark-text);
 }
