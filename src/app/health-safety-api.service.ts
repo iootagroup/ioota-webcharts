@@ -24,7 +24,7 @@ export class HealthSafetyAPIService {
   getSearch(type: string = '', start: string = '', end: string = '', limit: number = 100, from: number = 0) {
     let queryString = '';
 
-    if (type != ''){
+    if (type !== '') {
       queryString += 'type=' + type;
     }
 
