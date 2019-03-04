@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LiveComponent } from './charts/live/live.component';
 import { HistoryComponent } from './charts/history/history.component';
 import { SidemenuComponent } from './sidemenu/sidemenu.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
     FooterComponent,
     LiveComponent,
     HistoryComponent,
-    SidemenuComponent
+    SidemenuComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
