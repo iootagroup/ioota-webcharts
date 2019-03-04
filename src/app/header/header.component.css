@@ -1,0 +1,14 @@
+h1, h2 {
+    text-align: center;
+    color: white;
+    font: Myriad Pro;
+}
+
+h2 {
+    color: #f57300;
+}
+
+#head {
+    background-color: black;
+    padding: 10px;
+}
