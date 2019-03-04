@@ -1,0 +1,28 @@
+.wrapper {
+  display: grid;
+  grid-gap: 20px;
+}
+
+.info {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+}
+
+.boxes {
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.box {
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}

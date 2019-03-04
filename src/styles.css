@@ -9,6 +9,7 @@
   --grey-line-break: #cccccc; /*line break */
   --headline-font: Arial;
   --main-font: "Arial";
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
 body {
