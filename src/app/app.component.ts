@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ioota-webcharts';
+
+  private _opened = false;
+
+  private _toggleSidebar() {
+    this._opened = !this._opened;
+  }
 }
