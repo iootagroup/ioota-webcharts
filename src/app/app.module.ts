@@ -5,6 +5,8 @@ import { SidebarModule } from 'ng-sidebar';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LiveComponent } from './charts/live/live.component';
@@ -26,6 +28,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FontAwesomeModule,
     SidebarModule.forRoot()
   ],
   providers: [
