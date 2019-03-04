@@ -11,7 +11,6 @@ import { LiveComponent } from './charts/live/live.component';
 import { HistoryComponent } from './charts/history/history.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './jwt-interceptor';
-import { SidemenuComponent } from './sidemenu/sidemenu.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
