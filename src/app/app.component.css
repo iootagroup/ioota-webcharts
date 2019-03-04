@@ -5,11 +5,16 @@
   --dark-text: #414141;
   --grey-bg: #ededed;
   --grey-line-break: #cccccc;
-  --headline-font: Myriad Pro;
-  --main-font: Proxima Nova;
+  --headline-font: sans-serif;
+  --main-font: sans-serif;
 }
 
 body {
+  background-color: var(--grey-bg);
+  font-family: var(--main-font);
+}
+
+footer {
   background-color: var(--grey-bg);
   font-family: var(--main-font);
 }
