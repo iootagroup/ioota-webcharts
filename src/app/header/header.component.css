@@ -1,8 +1,8 @@
 h1, h2 {
-    padding-left: 15%;
+    padding-left: 8%;
     color: black;
-    font: Myriad Pro;
     display: block;
+    margin: 15px;
 }
 
 h2 {
@@ -13,11 +13,12 @@ h2 {
     background-color: white;
     padding: 10px;
     border: 3px solid black;
-    margin: auto;
+    margin: 10px;
 }
 
 img {
     float: right;
     padding: 5px;
+    padding-right: 20px;
     width: 32%;
 }
