@@ -1,0 +1,6 @@
+:host {
+  font-family: var(--main-font);
+  background-color: var(--black);
+  text-align: center;
+  font-size: 0.8rem;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
+import { HealthSafetyAPIService } from 'src/app/health-safety-api.service';
 
 @Component({
   selector: 'app-live',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LiveComponent implements OnInit {
 
-  constructor() { }
+  constructor(private hsapi: HealthSafetyAPIService) { }
 
   ngOnInit() {
+
+
+    this.hsapi.getHealth()
+      .subscribe(
+        data => console.log(data),
+        err => console.log(err)
+      );
   }
 
 }
