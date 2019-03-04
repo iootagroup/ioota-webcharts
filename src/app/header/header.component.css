@@ -1,0 +1,24 @@
+h1, h2 {
+    padding-left: 8%;
+    color: black;
+    display: block;
+    margin: 15px;
+}
+
+h2 {
+    color: #f57300;
+}
+
+#head {
+    background-color: white;
+    padding: 10px;
+    border: 3px solid black;
+    margin: 10px;
+}
+
+img {
+    float: right;
+    padding: 5px;
+    padding-right: 20px;
+    width: 32%;
+}
