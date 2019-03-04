@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidemenuComponent implements OnInit {
 
+  private _opened = false;
+
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  private _toggleSidebar() {
+    this._opened = !this._opened;
+  }
 }
