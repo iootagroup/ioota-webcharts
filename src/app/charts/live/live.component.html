@@ -1,6 +1,13 @@
 <div class="wrapper">
   <div class="info-text">
+
     <h2>Air Quality Levels</h2>
+
+    <div class="alerts">
+      <p *ngFor="let alert of alerts">
+          <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+      </p>
+    </div>
   </div>
   <div class="row">
     <div>

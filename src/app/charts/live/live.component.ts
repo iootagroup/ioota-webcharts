@@ -4,7 +4,29 @@ import { HealthSafetyAPIService } from 'src/app/health-safety-api.service';
 import { ChartsModule } from 'ng2-charts';
 import { interval, Observable } from 'rxjs';
 import { takeWhile, tap, startWith, switchMap } from 'rxjs/operators';
+import { NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
+
+interface Alert {
+  type: string;
+  message: string;
+}
+
+const ALERTS: Alert[] = [{
+    type: 'success',
+    message: 'This is an success alert',
+  }, {
+    type: 'info',
+    message: 'This is an info alert',
+  }, {
+    type: 'warning',
+    message: 'This is a warning alert',
+  }, {
+    type: 'danger',
+    message: 'This is a danger alert',
+  }
+];
+
 
 @Component({
   selector: 'app-live',
@@ -18,6 +40,8 @@ export class LiveComponent implements OnInit {
   dataObs$: Observable<any>;
   alive = true;
 
+  alerts: Alert[];
+
   public lineChartData: any[] = [
     { data: this.liveTable, label: 'Air quality' }
     /**
@@ -27,7 +51,7 @@ export class LiveComponent implements OnInit {
   ];
   public lineChartLabels: any[] = [
     '5sec', '10sec', '15sec', '20sec', '25sec', '30sec',
-    '35sec', '40sec', '45sec', '50sec'
+    '35sec', '40sec', '45sec', '50sec', '55sec', '1min'
   ];
 
   public lineChartOptions: any = {
@@ -54,7 +78,7 @@ export class LiveComponent implements OnInit {
   ngOnInit() {
     console.log(this.lineChartLabels);
 
-    this.liveTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    this.liveTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 
     this.hsapi.getHealth()
@@ -64,13 +88,23 @@ export class LiveComponent implements OnInit {
       );
 
     this.getTestData();
+
+    this.alerts = Array.from(ALERTS);
   }
 
   getTestData() {
-    interval(10000)
+    let nyt = moment();
+
+    let viimemin = moment(nyt).subtract(1, 'minute');
+
+    console.log(nyt.toISOString());
+
+    console.log(viimemin.toISOString());
+
+    interval(3000)
       .pipe(
         startWith(0),
-        switchMap(() => this.hsapi.getSearch('test', '', '', 10, 0))
+        switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 12, 0))
       )
       .subscribe(
         data => {
@@ -106,5 +140,13 @@ export class LiveComponent implements OnInit {
 
   public chartHovered(e: any): void {
     console.log(e);
+  }
+
+  close(alert: Alert) {
+    this.alerts.splice(this.alerts.indexOf(alert), 1);
+  }
+
+  reset() {
+    this.alerts = Array.from(ALERTS);
   }
 }

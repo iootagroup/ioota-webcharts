@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartsModule } from 'ng2-charts';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -29,7 +30,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ChartsModule
+    ChartsModule,
+    NgbModule
   ],
   providers: [
     {
