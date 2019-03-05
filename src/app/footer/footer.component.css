@@ -1,9 +1,7 @@
-footer {
+:host {
   /* background-color: var(--grey-bg); */
   text-align: center;
   font-size: 0.8rem;
-}
-footer {
   padding: 2rem 0;
   position: fixed;
   bottom: 0;

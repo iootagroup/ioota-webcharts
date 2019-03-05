@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HealthSafetyAPIService } from 'src/app/health-safety-api.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private hsapi: HealthSafetyAPIService) { }
 
   ngOnInit() {
+
+
+    this.hsapi.getSearch()
+      .subscribe(
+        data => console.log(data),
+        err => console.log(err)
+      );
   }
 
 }
