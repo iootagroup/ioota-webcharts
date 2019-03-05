@@ -56,7 +56,17 @@ export class LiveComponent implements OnInit {
   ];
 
   public lineChartOptions: any = {
-    responsive: true
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          // max: 200,
+          // min, 30
+          suggestedMax: 100,
+          suggestedMin: 30
+        }
+      }]
+    }
   };
   public lineChartColors: any[] = [
     { // grey
@@ -112,8 +122,8 @@ export class LiveComponent implements OnInit {
           viimemin = moment(nyt).subtract(1, 'minutes');
         }),
         startWith(0),
-          switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 12, 0))
-        )
+        switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 12, 0))
+      )
       .subscribe(
         APIdata => {
           this.liveData = APIdata;
