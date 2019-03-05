@@ -8,27 +8,6 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 
 
-interface Alert {
-  type: string;
-  message: string;
-}
-
-const ALERTS: Alert[] = [
-  // {
-  //   type: 'success',
-  //   message: 'This is an success alert',
-  // }, {
-  //   type: 'info',
-  //   message: 'This is an info alert',
-  // }, {
-  //   type: 'warning',
-  //   message: 'This is a warning alert',
-  // }, {
-  // type: 'danger',
-  // message: 'This is a danger alert',
-  // }
-];
-
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
@@ -37,15 +16,13 @@ const ALERTS: Alert[] = [
 export class HistoryComponent implements OnInit {
 
   liveTable = {
-    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    data: [],
     label: 'Air quality'
   };
 
   liveData: any;
   dataObs$: Observable<any>;
   alive = true;
-
-  alerts: Alert[];
 
   public lineChartData: any[] = [
     this.liveTable
@@ -84,7 +61,7 @@ export class HistoryComponent implements OnInit {
      * Empty table if network is down
      */
     this.liveTable = {
-      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      data: [],
       label: 'Air quality'
     };
 
@@ -97,64 +74,39 @@ export class HistoryComponent implements OnInit {
         err => console.log(err)
       );
 
-    this.getLiveData();
+    this.getHistoryData();
 
-
-    this.alerts = Array.from(ALERTS);
   }
 
-  getLiveData() {
-    let nyt = moment();
+  getHistoryData () {
+    let startTime, endTime;
 
-    let viimemin = moment(nyt).subtract(1, 'month');
+    for (let i = 0; i < 30; i++) {
 
-    interval(30000)
-      .pipe(
-        tap(() => {
-          nyt = moment();
-          viimemin = moment(nyt).subtract(1, 'month');
-        }),
-        startWith(0),
-          switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 3000, 0))
-        )
+      endTime = moment().subtract(i, 'day');
+      startTime = moment().subtract(i + 1, 'day');
+
+      this.hsapi.getSearch('airquality', startTime.toISOString(), endTime.toISOString(), 86400, 0)
       .subscribe(
         APIdata => {
           this.liveData = APIdata;
+          let sum = 0;
+          let avg = 0;
 
           for (const key of Object.keys(this.liveData.data)) {
-            this.liveTable.data[key] = this.liveData.data[key].value;
-
+            sum += this.liveData.data[key].value;
           }
-          console.log(this.liveTable.data[this.liveTable.data.length - 1]);
-
-          if (this.liveTable.data[this.liveTable.data.length - 1] > 11) {
-
-            const showAlert: Alert = {
-              type: 'danger',
-              message: 'Air is bad!'
-            };
-
-            // this.alerts.push(showAlert);
-            // setTimeout(() => this.close(showAlert), 4000);
+          if (sum > 0) {
+            avg = sum / this.liveData.data.length;
           }
+          this.liveTable.data[29 - i] = avg;
 
           this.lineChartData = [this.liveTable];
-          console.log(this.lineChartData);
         },
         err => console.log(err)
       );
-  }
-
-  public randomize(): void {
-    const lineChartData: any[] = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-      }
     }
-    this.lineChartData = lineChartData;
-    console.log(this.lineChartData);
+
   }
 
   // events
@@ -166,11 +118,4 @@ export class HistoryComponent implements OnInit {
     console.log(e);
   }
 
-  close(alert: Alert) {
-    this.alerts.splice(this.alerts.indexOf(alert), 1);
-  }
-
-  reset() {
-    this.alerts = Array.from(ALERTS);
-  }
 }

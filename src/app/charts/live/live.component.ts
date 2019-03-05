@@ -37,7 +37,7 @@ const ALERTS: Alert[] = [
 export class LiveComponent implements OnInit {
 
   liveTable = {
-    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    data: [],
     label: 'Air quality'
   };
 
@@ -132,9 +132,8 @@ export class LiveComponent implements OnInit {
             this.liveTable.data[key] = this.liveData.data[key].value;
 
           }
-          console.log(this.liveTable.data[this.liveTable.data.length - 1]);
 
-          if (this.liveTable.data[this.liveTable.data.length - 1] > 11) {
+          if (this.liveTable.data[this.liveTable.data.length - 1] > 70) {
 
             const showAlert: Alert = {
               type: 'danger',
@@ -146,7 +145,7 @@ export class LiveComponent implements OnInit {
           }
 
           this.lineChartData = [this.liveTable];
-          console.log(this.lineChartData);
+          // console.log(this.lineChartData);
         },
         err => console.log(err)
       );
