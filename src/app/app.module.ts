@@ -6,6 +6,7 @@ import { SidebarModule } from 'ng-sidebar';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ChartsModule } from 'ng2-charts';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -22,13 +23,14 @@ import { WelcomeComponent } from './welcome/welcome.component';
     FooterComponent,
     LiveComponent,
     HistoryComponent,
-    WelcomeComponent
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
+    ChartsModule,
     SidebarModule.forRoot()
   ],
   providers: [
