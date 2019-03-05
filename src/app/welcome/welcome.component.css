@@ -13,6 +13,16 @@
   background-color: var(--dark-text);
 }
 
+.btn fa-icon {
+  font-size: 1rem;
+  padding: 0.2rem;
+  color: var(--white);
+}
+
+.btn:hover fa-icon {
+  color: var(--orange);
+}
+
 img {
   max-width: 100%;
 }
@@ -55,6 +65,11 @@ img {
 
 .showcase h2 {
   margin-top: 0;
+}
+
+.showcase h1,
+h2 {
+  text-shadow: var(--shadow);
 }
 
 .top-info {
