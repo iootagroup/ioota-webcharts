@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { SidebarModule } from 'ng-sidebar';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ChartsModule } from 'ng2-charts';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -31,7 +31,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     AppRoutingModule,
     FontAwesomeModule,
     ChartsModule,
-    SidebarModule.forRoot()
+    NgbModule
   ],
   providers: [
     {
