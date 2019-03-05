@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { SidebarModule } from 'ng-sidebar';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -30,8 +29,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     HttpClientModule,
     AppRoutingModule,
     FontAwesomeModule,
-    ChartsModule,
-    SidebarModule.forRoot()
+    ChartsModule
   ],
   providers: [
     {

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { HealthSafetyAPIService } from 'src/app/health-safety-api.service';
 import { ChartsModule } from 'ng2-charts';
+import { interval, Observable } from 'rxjs';
+import { takeWhile, tap, startWith, switchMap } from 'rxjs/operators';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-live',
@@ -9,12 +12,24 @@ import { ChartsModule } from 'ng2-charts';
   styleUrls: ['./live.component.css']
 })
 export class LiveComponent implements OnInit {
+
+  liveTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  liveData: any;
+  dataObs$: Observable<any>;
+  alive = true;
+
   public lineChartData: any[] = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
+    { data: this.liveTable, label: 'Series A' }
+    /**
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
     { data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C' }
+     */
   ];
-  public lineChartLabels: any[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels: any[] = [
+    '5sec', '10sec', '15sec', '20sec', '25sec', '30sec',
+    '35sec', '40sec', '45sec', '50sec'
+  ];
+
   public lineChartOptions: any = {
     responsive: true
   };
@@ -47,9 +62,43 @@ export class LiveComponent implements OnInit {
   public lineChartLegend = true;
   public lineChartType = 'line';
 
-  constructor() { }
+  constructor(private hsapi: HealthSafetyAPIService) { }
 
   ngOnInit() {
+    console.log(this.lineChartLabels);
+
+    this.liveTable = [1, 2, 3, 4, 5, 6, 7, 8,  9, 10];
+
+
+    this.hsapi.getHealth()
+    .subscribe(
+      data => console.log(data),
+      err => console.log(err)
+    );
+
+    this.getTestData();
+  }
+
+  getTestData() {
+    interval(10000)
+      .pipe(
+        startWith(0),
+        switchMap(() => this.hsapi.getSearch('test', '', '', 10, 0))
+      )
+      .subscribe(
+        data => {
+          this.liveData = data;
+
+          for (const key of Object.keys(this.liveData.data)) {
+            this.liveTable[key] = this.liveData.data[key].value;
+          }
+
+          this.lineChartData = this.liveTable;
+
+          console.log(this.liveTable);
+        },
+        err => console.log(err)
+      );
   }
 
   public randomize(): void {
