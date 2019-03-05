@@ -51,8 +51,10 @@ export class HistoryComponent implements OnInit {
     this.liveTable
   ];
   public lineChartLabels: any[] = [
-    '55sec', '50sec', '45sec', '40sec', '35sec', '30sec',
-    '25sec', '20sec', '15sec', '10sec', '5sec', '0sec'
+    '29 day', '28 day', '27 day', '26 day', '25 day', '24 day', '23 day', '22 day', '21 day',
+    '10 day', '19 day', '18 day', '17 day', '16 day', '15 day', '14 day', '13 day', '12 day', '11 day',
+    '10 day', '9 day', '8 day', '7 day', '6 day', '5 day', '4 day', '3 day', '2 day', '1 day',
+     'Today'
   ];
 
   public lineChartOptions: any = {
@@ -113,7 +115,7 @@ export class HistoryComponent implements OnInit {
           viimemin = moment(nyt).subtract(1, 'month');
         }),
         startWith(0),
-          switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 30, 0))
+          switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 3000, 0))
         )
       .subscribe(
         APIdata => {
