@@ -49,10 +49,6 @@ export class LiveComponent implements OnInit {
 
   public lineChartData: any[] = [
     this.liveTable
-    /**
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-    { data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C' }
-     */
   ];
   public lineChartLabels: any[] = [
     '55sec', '50sec', '45sec', '40sec', '35sec', '30sec',
@@ -82,23 +78,27 @@ export class LiveComponent implements OnInit {
 
   ngOnInit() {
 
+    /**
+     * Empty table if network is down
+     */
     this.liveTable = {
       data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       label: 'Air quality'
     };
 
+    /**
+     * Test API request
+     */
     this.hsapi.getHealth()
       .subscribe(
         data => console.log(data),
         err => console.log(err)
       );
 
-    this.getTestData();
-
-    this.alerts = Array.from(ALERTS);
+    this.getLiveData();
   }
 
-  getTestData() {
+  getLiveData() {
     let nyt = moment();
 
     let viimemin = moment(nyt).subtract(1, 'minute');
@@ -126,12 +126,12 @@ export class LiveComponent implements OnInit {
           }
           console.log(this.liveTable.data[this.liveTable.data.length - 1]);
 
-          if(this.liveTable.data[this.liveTable.data.length - 1] > 11){
+          if (this.liveTable.data[this.liveTable.data.length - 1] > 11) {
 
             const showAlert: Alert = {
               type: 'danger',
               message: 'Air is bad!'
-            }
+            };
 
             this.alerts.push(showAlert);
             setTimeout(() => this.close(showAlert), 4000);
