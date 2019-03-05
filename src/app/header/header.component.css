@@ -18,6 +18,11 @@ img {
   background-color: var(--white);
   padding: 1.3rem 2rem; /* Required protected area around the Kemppi logo */
 }
+.navibar {
+    background-color: var(--white);
+    padding-left: 2rem;
+    padding-top: 0rem; 
+}
 
 .title {
   display: flex;
@@ -39,3 +44,34 @@ img {
 .logo a {
   align-self: flex-end;
 }
+
+.adresslist {
+    list-style-type: none;
+    padding: 1px;
+    overflow: hidden;
+    margin: 0px;
+  }
+
+  .navibar {
+      background-color: var(--black);
+  }
+
+li {
+    float: left;
+    background-color: var(--black);
+    border-right: 1px solid var(--grey-line-break);
+  }
+  
+li a {
+    display: block;
+    color: var(--white);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+li a:hover {
+    background-color: var(--orange);
+    color: var(--white);
+  }
+  
