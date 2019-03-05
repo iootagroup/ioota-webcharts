@@ -92,12 +92,27 @@ h2 {
 
 .box {
   padding: 4rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-areas:
+    "box-icon"
+    "box-text"
+    "box-text"
+    "box-text"
+    "box-text";
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
   background-color: var(--white);
   text-align: center;
+}
+
+.box-icon {
+  grid-area: box-icon;
+}
+
+.box-text {
+  grid-area: box-text;
 }
 
 /* Fa icons */

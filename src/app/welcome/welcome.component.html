@@ -7,17 +7,16 @@
     </header>
     <div class="top-info">
       <p>
-        This is what our product does. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Ratione, nam sint. Ullam eos eligendi molestias
-        quibusdam sunt perspiciatis pariatur sequi autem nihil non. Consectetur
-        repudiandae placeat, ipsa facere laboriosam vel! Lorem, ipsum dolor.
+        At the Kemppi Hackaton 2019 event our team made a prototype application
+        which could be used to enhance the safety of welding workers. Our
+        product consists of a Raspberry Pi with multiple sensors monitoring the
+        environment and especially the quality of air around the worker.
       </p>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae
-        quibusdam libero dicta illo rerum, vero odit laborum dolore aliquam cum
-        atque consequuntur officia modi? Et ea itaque asperiores exercitationem,
-        modi reiciendis illo dolore minima quibusdam dicta quam expedita
-        accusamus iure!
+        The device itself has a light and a sound indicator informing the
+        workers and others present of possible safety hazards and all of the
+        monitored data can be viewed in real time online with our web
+        application. Click the button below to prodeed to the application.
       </p>
       <a href="#" class="btn" [routerLink]="'/charts/live'"
         >Launch application
@@ -29,47 +28,48 @@
   <!-- Boxes container -->
   <section class="boxes">
     <div class="box">
-      <fa-icon [icon]="faCoffee"></fa-icon>
-      <p>
-        This is ONE of the features of our product and the ICON above this
-        paragraph describes THIS sentence. Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Vel, recusandae tempora. Nemo dolorum,
-        laborum ullam odio nesciunt tenetur sint id reprehenderit beatae
-        repellat corrupti maiores pariatur amet dicta voluptatibus inventore.
-      </p>
+      <div class="box-icon">
+        <fa-icon [icon]="faWind"></fa-icon>
+      </div>
+      <div class="box-text">
+        <p>
+          Monitors the quality of the air around a welding workstation,
+          including CO2 levels
+        </p>
+      </div>
     </div>
     <div class="box">
-      <fa-icon [icon]="faAd"></fa-icon>
-
-      <p>
-        This is ONE of the features of our product and the ICON above this
-        paragraph describes THIS sentence. Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Vel, recusandae tempora. Nemo dolorum,
-        laborum ullam odio nesciunt tenetur sint id reprehenderit beatae
-        repellat corrupti maiores pariatur amet dicta voluptatibus inventore.
-      </p>
+      <div class="box-icon">
+        <fa-icon [icon]="faBell"></fa-icon>
+      </div>
+      <div class="box-text">
+        <p>
+          Alerts the worker and others present of possible safety hazards with a
+          warning light and a buzzer
+        </p>
+      </div>
     </div>
     <div class="box">
-      <fa-icon [icon]="faAddressBook"></fa-icon>
-
-      <p>
-        This is ONE of the features of our product and the ICON above this
-        paragraph describes THIS sentence. Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Vel, recusandae tempora. Nemo dolorum,
-        laborum ullam odio nesciunt tenetur sint id reprehenderit beatae
-        repellat corrupti maiores pariatur amet dicta voluptatibus inventore.
-      </p>
+      <div class="box-icon">
+        <fa-icon [icon]="faClock"></fa-icon>
+      </div>
+      <div class="box-text">
+        <p>
+          Includes a real-time view of the incoming data so you can have an
+          overview of the situation
+        </p>
+      </div>
     </div>
     <div class="box">
-      <fa-icon [icon]="faAirFreshener"></fa-icon>
-
-      <p>
-        This is ONE of the features of our product and the ICON above this
-        paragraph describes THIS sentence. Lorem ipsum, dolor sit amet
-        consectetur adipisicing elit. Vel, recusandae tempora. Nemo dolorum,
-        laborum ullam odio nesciunt tenetur sint id reprehenderit beatae
-        repellat corrupti maiores pariatur amet dicta voluptatibus inventore.
-      </p>
+      <div class="box-icon">
+        <fa-icon [icon]="faDatabase"></fa-icon>
+      </div>
+      <div class="box-text">
+        <p>
+          Logs all monitored data so the information can be used for practical
+          purposes later
+        </p>
+      </div>
     </div>
   </section>
 </div>

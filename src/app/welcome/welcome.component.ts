@@ -4,7 +4,12 @@ import {
   faAd,
   faAddressBook,
   faAirFreshener,
-  faAngleRight
+  faAngleRight,
+  faBell,
+  faHistory,
+  faWind,
+  faDatabase,
+  faClock
 } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
@@ -18,6 +23,11 @@ export class WelcomeComponent implements OnInit {
   faAddressBook = faAddressBook;
   faAirFreshener = faAirFreshener;
   faAngleRight = faAngleRight;
+  faBell = faBell;
+  faHistory = faHistory;
+  faWind = faWind;
+  faDatabase = faDatabase;
+  faClock = faClock;
 
   constructor() {}
 
