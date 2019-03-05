@@ -96,16 +96,14 @@ export class LiveComponent implements OnInit {
       );
 
     this.getLiveData();
+
+    this.alerts = Array.from(ALERTS);
   }
 
   getLiveData() {
     let nyt = moment();
 
     let viimemin = moment(nyt).subtract(1, 'minute');
-
-    console.log(nyt.toISOString());
-
-    console.log(viimemin.toISOString());
 
     interval(5000)
       .pipe(
@@ -120,7 +118,7 @@ export class LiveComponent implements OnInit {
         APIdata => {
           this.liveData = APIdata;
 
-          for (let key of Object.keys(this.liveData.data)) {
+          for (const key of Object.keys(this.liveData.data)) {
             this.liveTable.data[key] = this.liveData.data[key].value;
 
           }
@@ -135,10 +133,7 @@ export class LiveComponent implements OnInit {
 
             this.alerts.push(showAlert);
             setTimeout(() => this.close(showAlert), 4000);
-            console.log(showAlert);
           }
-
-          console.log(this.liveTable);
 
           this.lineChartData = [this.liveTable];
           console.log(this.lineChartData);
