@@ -35,12 +35,15 @@ export class LiveComponent implements OnInit {
   };
   public lineChartColors: any[] = [
     { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      // backgroundColor: 'rgba(148,159,177,0.2)',
+      backgroundColor: 'rgb(0, 0, 0, 0.7)',
+      // borderColor: 'rgba(148,159,177,1)',
+      borderColor: '#f57300',
+      pointBackgroundColor: '#f57300',
+      pointBorderColor: '#414141',
+      pointHoverBackgroundColor: '#414141',
+      // pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+      pointHoverBorderColor: '#000'
     }
   ];
   public lineChartLegend = true;
@@ -51,14 +54,14 @@ export class LiveComponent implements OnInit {
   ngOnInit() {
     console.log(this.lineChartLabels);
 
-    this.liveTable = [1, 2, 3, 4, 5, 6, 7, 8,  9, 10];
+    this.liveTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 
     this.hsapi.getHealth()
-    .subscribe(
-      data => console.log(data),
-      err => console.log(err)
-    );
+      .subscribe(
+        data => console.log(data),
+        err => console.log(err)
+      );
 
     this.getTestData();
   }

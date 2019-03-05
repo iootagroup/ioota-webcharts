@@ -1,19 +1,15 @@
 <div class="wrapper">
   <div class="info-text">
-    <p>
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae, unde.
-    </p>
+    <h2>Air Quality Levels</h2>
   </div>
   <div class="row">
-    <div class="col-md-6">
-      <div style="display: block;">
-        <canvas baseChart width="400" height="400" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
-          [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
-          (chartClick)="chartClicked($event)"></canvas>
-      </div>
+    <div>
+      <canvas baseChart width="400" height="100" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
     </div>
-    <div class="col-md-6" style="margin-bottom: 10px">
+    <!-- <div class="col-md-6" style="margin-bottom: 10px">
       <button mat-button (click)="randomize()">CLICK</button>
-    </div>
+    </div> -->
   </div>
 </div>
