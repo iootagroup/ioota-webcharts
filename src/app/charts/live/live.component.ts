@@ -35,7 +35,11 @@ const ALERTS: Alert[] = [{
 })
 export class LiveComponent implements OnInit {
 
-  liveTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  liveTable = {
+    data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    label: 'Air quality'
+  };
+
   liveData: any;
   dataObs$: Observable<any>;
   alive = true;
@@ -43,7 +47,7 @@ export class LiveComponent implements OnInit {
   alerts: Alert[];
 
   public lineChartData: any[] = [
-    { data: this.liveTable, label: 'Air quality' }
+    this.liveTable
     /**
     { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
     { data: [18, 48, 77, 9, 100, 27, 40], label: 'Series C' }
@@ -76,10 +80,11 @@ export class LiveComponent implements OnInit {
   constructor(private hsapi: HealthSafetyAPIService) { }
 
   ngOnInit() {
-    console.log(this.lineChartLabels);
 
-    this.liveTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
+    this.liveTable = {
+      data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      label: 'Air quality'
+    };
 
     this.hsapi.getHealth()
       .subscribe(
@@ -101,22 +106,26 @@ export class LiveComponent implements OnInit {
 
     console.log(viimemin.toISOString());
 
-    interval(3000)
+    interval(5000)
       .pipe(
+        tap(() => {
+          nyt = moment();
+          viimemin = moment(nyt).subtract(1, 'day');
+        }),
         startWith(0),
-        switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 12, 0))
-      )
+          switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 12, 0))
+        )
       .subscribe(
-        data => {
-          this.liveData = data;
+        APIdata => {
+          this.liveData = APIdata;
 
-          for (const key of Object.keys(this.liveData.data)) {
-            this.liveTable[key] = this.liveData.data[key].value;
+          for (let key of Object.keys(this.liveData.data)) {
+            this.liveTable.data[key] = this.liveData.data[key].value;
           }
+          console.log(this.liveTable);
 
           this.lineChartData = this.liveTable;
-
-          console.log(this.liveTable);
+          console.log(this.lineChartData);
         },
         err => console.log(err)
       );
@@ -131,6 +140,7 @@ export class LiveComponent implements OnInit {
       }
     }
     this.lineChartData = lineChartData;
+    console.log(this.lineChartData);
   }
 
   // events
