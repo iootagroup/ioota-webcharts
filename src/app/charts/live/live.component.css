@@ -9,7 +9,7 @@
 .info-text {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  max-width: 100%;
+  /* max-width: 100%; */
   padding: 1rem;
   align-content: flex-start;
 }
