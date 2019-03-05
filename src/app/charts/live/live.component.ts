@@ -4,7 +4,7 @@ import { HealthSafetyAPIService } from 'src/app/health-safety-api.service';
 import { ChartsModule } from 'ng2-charts';
 import { interval, Observable } from 'rxjs';
 import { takeWhile, tap, startWith, switchMap } from 'rxjs/operators';
-import { NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import * as moment from 'moment';
 
 interface Alert {
@@ -13,18 +13,18 @@ interface Alert {
 }
 
 const ALERTS: Alert[] = [{
-    type: 'success',
-    message: 'This is an success alert',
-  }, {
-    type: 'info',
-    message: 'This is an info alert',
-  }, {
-    type: 'warning',
-    message: 'This is a warning alert',
-  }, {
-    type: 'danger',
-    message: 'This is a danger alert',
-  }
+  //   type: 'success',
+  //   message: 'This is an success alert',
+  // }, {
+  //   type: 'info',
+  //   message: 'This is an info alert',
+  // }, {
+  //   type: 'warning',
+  //   message: 'This is a warning alert',
+  // }, {
+  type: 'danger',
+  message: 'This is a danger alert',
+}
 ];
 
 
