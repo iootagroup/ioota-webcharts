@@ -12,7 +12,8 @@ interface Alert {
   message: string;
 }
 
-const ALERTS: Alert[] = [{
+const ALERTS: Alert[] = [
+  // {
   //   type: 'success',
   //   message: 'This is an success alert',
   // }, {
@@ -22,9 +23,9 @@ const ALERTS: Alert[] = [{
   //   type: 'warning',
   //   message: 'This is a warning alert',
   // }, {
-  type: 'danger',
-  message: 'This is a danger alert',
-}
+  // type: 'danger',
+  // message: 'This is a danger alert',
+  // }
 ];
 
 
@@ -54,8 +55,8 @@ export class LiveComponent implements OnInit {
      */
   ];
   public lineChartLabels: any[] = [
-    '5sec', '10sec', '15sec', '20sec', '25sec', '30sec',
-    '35sec', '40sec', '45sec', '50sec', '55sec', '1min'
+    '55sec', '50sec', '45sec', '40sec', '35sec', '30sec',
+    '25sec', '20sec', '15sec', '10sec', '5sec', '0sec'
   ];
 
   public lineChartOptions: any = {
@@ -110,7 +111,7 @@ export class LiveComponent implements OnInit {
       .pipe(
         tap(() => {
           nyt = moment();
-          viimemin = moment(nyt).subtract(1, 'day');
+          viimemin = moment(nyt).subtract(1, 'minutes');
         }),
         startWith(0),
           switchMap(() => this.hsapi.getSearch('airquality', viimemin.toISOString(), nyt.toISOString(), 12, 0))
@@ -121,10 +122,25 @@ export class LiveComponent implements OnInit {
 
           for (let key of Object.keys(this.liveData.data)) {
             this.liveTable.data[key] = this.liveData.data[key].value;
+
           }
+          console.log(this.liveTable.data[this.liveTable.data.length - 1]);
+
+          if(this.liveTable.data[this.liveTable.data.length - 1] > 11){
+
+            const showAlert: Alert = {
+              type: 'danger',
+              message: 'Air is bad!'
+            }
+
+            this.alerts.push(showAlert);
+            setTimeout(() => this.close(showAlert), 4000);
+            console.log(showAlert);
+          }
+
           console.log(this.liveTable);
 
-          this.lineChartData = this.liveTable;
+          this.lineChartData = [this.liveTable];
           console.log(this.lineChartData);
         },
         err => console.log(err)

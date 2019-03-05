@@ -4,7 +4,7 @@
     <h2>Air Quality Levels</h2>
 
     <p *ngFor="let alert of alerts">
-      <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+      <ngb-alert [type]="alert.type" (close)="staticAlertClosed = true" (click)="close(alert)">{{ alert.message }}</ngb-alert>
     </p>
   </div>
   <div class="row">
@@ -13,8 +13,10 @@
         [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
         (chartClick)="chartClicked($event)"></canvas>
     </div>
-    <!-- <div class="col-md-6" style="margin-bottom: 10px">
-      <button mat-button (click)="randomize()">CLICK</button>
-    </div> -->
+    <!--
+    <div class="col-md-6" style="margin-bottom: 10px">
+      <button type="button" class="btn btn-primary" (click)="randomize()">CLICK</button>
+    </div>
+    -->
   </div>
 </div>
