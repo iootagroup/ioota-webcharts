@@ -1,0 +1,8 @@
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-content {
+  padding-bottom: 6rem;
+}

@@ -1,0 +1,122 @@
+.btn {
+  text-decoration: none;
+  color: var(--white);
+  background-color: var(--orange);
+  padding: 0.9rem;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  border: 0;
+}
+
+.btn:hover {
+  color: var(--orange);
+  background-color: var(--dark-text);
+}
+
+.btn fa-icon {
+  font-size: 1rem;
+  padding: 0.2rem;
+  color: var(--white);
+}
+
+.btn:hover fa-icon {
+  color: var(--orange);
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  display: grid;
+}
+
+/* Top container */
+.top-container {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
+    "showcase showcase top-info"
+    "showcase showcase top-info";
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--grey-bg);
+  padding: 2rem;
+}
+
+.showcase {
+  grid-area: showcase;
+  min-height: 400px;
+  background: url("https://images.pexels.com/photos/57007/pexels-photo-57007.jpeg");
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.showcase h1 {
+  font-size: 3rem;
+  margin-bottom: 0;
+}
+
+.showcase h2 {
+  margin-top: 0;
+}
+
+.showcase h1,
+h2 {
+  text-shadow: var(--shadow);
+}
+
+.top-info {
+  grid-area: top-info;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* Boxes container */
+.boxes {
+  border-top: 1px solid var(--grey-line-break);
+  border-bottom: 1px solid var(--grey-line-break);
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(4, 1fr);
+  /* background-color: var(--white); */
+}
+
+.box {
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-areas:
+    "box-icon"
+    "box-text"
+    "box-text"
+    "box-text"
+    "box-text";
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  background-color: var(--white);
+  text-align: center;
+}
+
+.box-icon {
+  grid-area: box-icon;
+}
+
+.box-text {
+  grid-area: box-text;
+}
+
+/* Fa icons */
+fa-icon {
+  font-size: 3rem;
+  color: var(--dark-text);
+}

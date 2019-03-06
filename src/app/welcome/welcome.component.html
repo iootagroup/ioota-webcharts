@@ -1,0 +1,76 @@
+<div class="wrapper">
+  <!-- Top container -->
+  <section class="top-container">
+    <header class="showcase">
+      <h1>Ioota Group</h1>
+      <h2>Omikron Safety</h2>
+    </header>
+    <div class="top-info">
+      <p>
+        At the Kemppi Hackaton 2019 event our team made a prototype application
+        which could be used to enhance the safety of welding workers. Our
+        product consists of a Raspberry Pi with multiple sensors monitoring the
+        environment and especially the quality of air around the worker.
+      </p>
+      <p>
+        The device itself has a light and a sound indicator informing the
+        workers and others present of possible safety hazards and all of the
+        monitored data can be viewed in real time online with our web
+        application. Click the button below to prodeed to the application.
+      </p>
+      <a href="#" class="btn" [routerLink]="'/charts/live'"
+        >Launch application
+        <fa-icon [icon]="faAngleRight"></fa-icon>
+      </a>
+    </div>
+  </section>
+
+  <!-- Boxes container -->
+  <section class="boxes">
+    <div class="box">
+      <div class="box-icon">
+        <fa-icon [icon]="faWind"></fa-icon>
+      </div>
+      <div class="box-text">
+        <p>
+          Monitors the quality of the air around a welding workstation,
+          including CO2 levels
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-icon">
+        <fa-icon [icon]="faBell"></fa-icon>
+      </div>
+      <div class="box-text">
+        <p>
+          Alerts the worker and others present of possible safety hazards with a
+          warning light and a buzzer
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-icon">
+        <fa-icon [icon]="faClock"></fa-icon>
+      </div>
+      <div class="box-text">
+        <p>
+          Includes a real-time view of the incoming data so you can have an
+          overview of the situation
+        </p>
+      </div>
+    </div>
+    <div class="box">
+      <div class="box-icon">
+        <fa-icon [icon]="faDatabase"></fa-icon>
+      </div>
+      <div class="box-text">
+        <p>
+          Logs all monitored data so the information can be used for practical
+          purposes later
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Wrapper ends -->

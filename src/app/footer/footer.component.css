@@ -1,0 +1,16 @@
+:host {
+  /* background-color: var(--grey-bg); */
+  text-align: center;
+  font-size: 0.8rem;
+  position: absolute;
+  height: 4rem;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--dark-text);
+  color: var(--discreet-text);
+  border-top: 1px solid var(--grey-line-break);
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
